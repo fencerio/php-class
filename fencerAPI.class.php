@@ -7,7 +7,7 @@
  *
  * @package 	Fencer.io
  * @author 		Ollie Phillips
- * @copyright  	Copyright (c) 2016 Fencer.io
+ * @copyright 	Copyright (c) 2016 Fencer.io
  * @license 	http://www.gnu.org/licenses/gpl.txt
  * @version 	1.0 21/09/2016
  * 
