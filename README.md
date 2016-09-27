@@ -1,7 +1,7 @@
 
 
 # PHP Class
-## For accessing the Fencer.io API
+## PHP class containing methods which wrap the Fencer.io API
 
 Consult the class and/or the API docs to establish which arguments are required. https://fencer.io/developers
 
@@ -21,30 +21,16 @@ $fencer = new fencerAPI($apiKey, $accessKey);
 $fencer->setLat($lat);
 $fencer->setLng($lng);
 
-// Make calls to the API
+// Example call to the API
+// Determine if passed lat/lng is inside geofence with
+// $accessKey of 4c89693a-02c4-xxxx-xxxx-cdf801237e3d
+
 $inside = $fencer->positionInside();
+
+// Returns an object. Here we just print it
 print_r($inside);
 echo "<hr>";
 
-$status = $fencer->positionStatus();
-print_r($status);
-echo "<hr>";
-
-$in = $fencer->navigateIn();
-print_r($in);
-echo "<hr>";
-
-$out = $fencer->navigateOut();
-print_r($out);
-echo "<hr>";
-
-$origin = $fencer->navigateOrigin();
-print_r($origin);
-echo "<hr>";
-
-$geofence = $fencer->getGeofences();
-print_r($geofence);
-echo "<hr>";
 ```
 
 ## License
