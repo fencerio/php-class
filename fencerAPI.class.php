@@ -180,14 +180,14 @@ class fencerAPI {
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 			curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, false);
 			curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    					'Authorization: ' . $this->apiKey,
-    					'Lat-Pos: ' . $this->lat,
+						'Authorization: ' . $this->apiKey,
+						'Lat-Pos: ' . $this->lat,
 						'Lng-Pos:' . $this->lng
-    				)
+					)
 			);
 			$json = curl_exec($ch);
-        	$httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        	curl_close($ch);
+			$httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+			curl_close($ch);
 
 			// Need more informative error info passed back
 			// Returning "error" is sufficient for now
