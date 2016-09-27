@@ -6,7 +6,7 @@
  * See https://fencer.io/developers for more information
  *
  * @package 	Fencer.io
- * @author 		Ollie Phillips
+ * @author 	Ollie Phillips
  * @copyright 	Copyright (c) 2016 Fencer.io
  * @license 	http://www.gnu.org/licenses/gpl.txt
  * @version 	1.0 21/09/2016
