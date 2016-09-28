@@ -165,6 +165,20 @@ class fencerAPI {
 
 	}
 
+	public function setLatLng($lat, $lng) {
+
+		/**
+		 * Setter for latitude & longitude combined
+		 *
+		 * @param $lat float
+		 * @param $lng float
+		 */
+
+		$this->lat = $lat; 
+		$this->lng = $lng;
+
+	}
+
 	private function request($endPoint) {
 
 		/**
