@@ -188,36 +188,42 @@ class fencerAPI {
 		 * @return $data object (or possibly a string at moment)
 		 */
 
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $endPoint);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, false);
 		if (isset($this->lat) && isset($this->lng)) {	
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, $endPoint);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-			curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, false);
+			// Lat/Lng supplied
 			curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 						'Authorization: ' . $this->apiKey,
 						'Lat-Pos: ' . $this->lat,
 						'Lng-Pos:' . $this->lng
 					)
 			);
-			$json = curl_exec($ch);
-			$httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-			curl_close($ch);
-
-			// Need more informative error info passed back
-			// Returning "error" is sufficient for now
-			if ($httpStatus != "200") {
-				$data = "error";
-			} else {
-				$response = JSON_decode($json);
-				if($response->data) {
-					$data = $response->data;
-				} else {
-					$data = "error";
-				}
-			}
 		} else {
-			$data = "error";
+			// Lat/Lng not supplied
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+						'Authorization: ' . $this->apiKey
+					)
+			);
 		}
+		$json = curl_exec($ch);
+		$httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		curl_close($ch);
+
+		// Need more informative error info passed back
+		// Returning "error" is sufficient for now
+		if ($httpStatus != "200") {
+			$data = "error";
+		} else {
+			$response = JSON_decode($json);
+			if($response->data) {
+				$data = $response->data;
+			} else {
+				$data = "error";
+			}
+		}
+
 		return $data;
 
 	}
