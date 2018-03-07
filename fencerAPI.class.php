@@ -113,6 +113,20 @@ class fencerAPI {
 
 	}
 
+	public function position() {
+
+		/**
+		 * GET /position
+		 *
+		 * @return $object
+		 */
+
+		$action = "position";
+		$endPoint = $this->baseURI . $this->version . "/" . $action;
+		return $this->request($endPoint);
+
+	}
+
 	public function positionInside() {
 
 		/**
